@@ -14,3 +14,29 @@ spipe [options] <listen port> <remote host> <remote port>
 
 Example: spipe -i 127.0.0.1 80 example.com 80
 ```
+
+### Install
+
+#### Source
+
+You need to have a properly configured Go installation (including having $GOBIN in your $PATH) to build spipe from source.
+
+```shell
+go get github.com/s1kx/spipe
+go install github.com/s1kx/spipe
+```
+
+#### Pre-compiled executables
+
+**Linux 64-bit**
+
+Download: http://storage.googleapis.com/spipe/bin/spipe-linux-amd64
+
+SHA256: `43bb616498de58cd499644d2439f2872c462a245dae27b8bfb2eb6134547f3f9`
+
+
+**Windows 64-bit**
+
+Download: http://storage.googleapis.com/spipe/bin/spipe-windows-amd64.exe
+
+SHA256: `fb6a62dd212ac8485ab07172d2480bce932773658633a9d4e3a61d659bf80873`
