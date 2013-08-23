@@ -36,7 +36,7 @@ func main() {
 	remoteHost := flag.Arg(1)
 	remotePort, err := strconv.Atoi(flag.Arg(2))
 	if err != nil || remotePort < 1 || remotePort > 65535 {
-		log.Fatalf("Invalid remote port: %s\n", flag.Arg(0))
+		log.Fatalf("Invalid remote port: %s\n", flag.Arg(2))
 	}
 
 	// Start listener and pipe connections
