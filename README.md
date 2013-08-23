@@ -39,4 +39,4 @@ SHA256: `43bb616498de58cd499644d2439f2872c462a245dae27b8bfb2eb6134547f3f9`
 
 Download: http://storage.googleapis.com/spipe/bin/spipe-windows-amd64.exe
 
-SHA256: `fb6a62dd212ac8485ab07172d2480bce932773658633a9d4e3a61d659bf80873`
+SHA256: `3ae70aed3c8d550bf2a75dd0289a0c363bd689ff29cbddafbb019c692125fe26`

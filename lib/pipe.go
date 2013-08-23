@@ -28,7 +28,7 @@ func (pipe *Pipe) RemoteAddr() string {
 }
 
 func (pipe *Pipe) Start() {
-	listener, err := net.Listen("tcp", pipe.LocalAddr())
+	listener, err := net.Listen(pipe.Network, pipe.LocalAddr())
 	if err != nil {
 		panic(fmt.Sprintf("Error listening: %s", err.Error()))
 		return
