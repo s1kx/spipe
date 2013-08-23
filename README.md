@@ -32,11 +32,11 @@ go install github.com/s1kx/spipe
 
 Download: http://storage.googleapis.com/spipe/bin/spipe-linux-amd64
 
-SHA256: `43bb616498de58cd499644d2439f2872c462a245dae27b8bfb2eb6134547f3f9`
+SHA256: `b739226af1c651e15d9df3bfbae93294b4a34fbdc8cf6a17ec910a6d30f36273`
 
 
 **Windows 64-bit**
 
 Download: http://storage.googleapis.com/spipe/bin/spipe-windows-amd64.exe
 
-SHA256: `3ae70aed3c8d550bf2a75dd0289a0c363bd689ff29cbddafbb019c692125fe26`
+SHA256: `7b9febfa43369395dec5aa00f5c145bf4faa5feb765446f9a6507196e041c2d4`
