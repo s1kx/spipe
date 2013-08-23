@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	spipe "github.com/s1kx/spipe/lib"
+	"log"
 	"os"
 	"strconv"
 )
@@ -24,20 +25,18 @@ func main() {
 		flag.PrintDefaults()
 		fmt.Println("")
 		fmt.Println("Example: spipe -i 127.0.0.1 80 example.com 80")
-		os.Exit(-1)
+		os.Exit(1)
 	}
 
 	// Read mandatory arguments
 	listenPort, err := strconv.Atoi(flag.Arg(0))
 	if err != nil || listenPort < 1 || listenPort > 65535 {
-		fmt.Printf("Invalid listening port: %s\n", flag.Arg(0))
-		os.Exit(-1)
+		log.Fatalf("Invalid listening port: %s\n", flag.Arg(0))
 	}
 	remoteHost := flag.Arg(1)
 	remotePort, err := strconv.Atoi(flag.Arg(2))
 	if err != nil || remotePort < 1 || remotePort > 65535 {
-		fmt.Printf("Invalid remote port: %s\n", flag.Arg(0))
-		os.Exit(-1)
+		log.Fatalf("Invalid remote port: %s\n", flag.Arg(0))
 	}
 
 	// Start listener and pipe connections
