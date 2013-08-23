@@ -20,7 +20,7 @@ func main() {
 
 	// Check if all mandatory arguments were supplied
 	if flag.NArg() < 3 {
-		fmt.Println("Usage: spipe [options] <listen port> <remote host> <remote port>")
+		fmt.Println("spipe [options] <listen port> <remote host> <remote port>")
 		fmt.Println("")
 		flag.PrintDefaults()
 		fmt.Println("")
