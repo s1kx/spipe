@@ -1,4 +1,4 @@
 spipe
 =====
 
-TCP/UDP port redirector, written in Go
+Superfast TCP/UDP port redirector, powered by Go
