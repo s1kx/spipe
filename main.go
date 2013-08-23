@@ -13,30 +13,34 @@ func main() {
 	var (
 		listenHost = flag.String("i", "0.0.0.0", "Listening interface IP address")
 		sourcePort = flag.Uint("s", 0, "Outbound source port number")
+		network    = flag.String("net", "tcp", "Network type (tcp, tcp4, tcp6)")
 	)
 	flag.Parse()
 
+	// Check if all mandatory arguments were supplied
 	if flag.NArg() < 3 {
-		fmt.Println("Usage: spipe [options] <listenPort> <remoteHost> <remotePort>")
+		fmt.Println("Usage: spipe [options] <listen port> <remote host> <remote port>")
 		fmt.Println("")
 		flag.PrintDefaults()
 		fmt.Println("")
-		fmt.Println("Example: spipe -i 0.0.0.0 80 example.com 80")
-		return
+		fmt.Println("Example: spipe -i 127.0.0.1 80 example.com 80")
+		os.Exit(-1)
 	}
 
+	// Read mandatory arguments
 	listenPort, err := strconv.Atoi(flag.Arg(0))
-	if err != nil || listenPort <= 0 || listenPort >= 65536 {
-		fmt.Println(fmt.Sprintf("Invalid listening port: %s", flag.Arg(0)))
+	if err != nil || listenPort < 1 || listenPort > 65535 {
+		fmt.Printf("Invalid listening port: %s\n", flag.Arg(0))
 		os.Exit(-1)
 	}
 	remoteHost := flag.Arg(1)
 	remotePort, err := strconv.Atoi(flag.Arg(2))
-	if err != nil || remotePort <= 0 || remotePort >= 65536 {
-		fmt.Println(fmt.Sprintf("Invalid remote port: %s", flag.Arg(0)))
+	if err != nil || remotePort < 1 || remotePort > 65535 {
+		fmt.Printf("Invalid remote port: %s\n", flag.Arg(0))
 		os.Exit(-1)
 	}
 
-	pipe := &spipe.Pipe{*listenHost, uint(listenPort), remoteHost, uint(remotePort), *sourcePort}
+	// Start listener and pipe connections
+	pipe := &spipe.Pipe{*network, *listenHost, uint(listenPort), remoteHost, uint(remotePort), *sourcePort}
 	pipe.Start()
 }

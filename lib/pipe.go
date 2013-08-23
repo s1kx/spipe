@@ -8,6 +8,8 @@ import (
 )
 
 type Pipe struct {
+	Network string
+
 	ListenHost string
 	ListenPort uint
 
@@ -56,12 +58,12 @@ func (pipe *Pipe) Start() {
 
 		log.Printf("Piping %s <-> %s", inConn.RemoteAddr(), pipe.RemoteAddr())
 
-		pipeConnection := func(a net.Conn, b net.Conn) {
-			defer a.Close()
-			io.Copy(b, a)
-		}
-
 		go pipeConnection(inConn, outConn)
 		go pipeConnection(outConn, inConn)
 	}
+}
+
+func pipeConnection(a net.Conn, b net.Conn) {
+	defer a.Close()
+	io.Copy(b, a)
 }
